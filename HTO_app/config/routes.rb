@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
 
+  get 'teams/new'
+
+  get 'teams/create'
+
+  get 'teams/update'
+
+  get 'teams/edit'
+
+  get 'teams/destroy'
+
+  get 'teams/index'
+
+  get 'teams/show'
+
+  resources :videos
+  resources :pictures
+  resources :players
   devise_for :teams
+  resources :teams
   root "teams#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
