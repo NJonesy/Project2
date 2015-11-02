@@ -17,10 +17,25 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @team.postcode %>
+  <strong>Post code:</strong>
+  <%= @team.post_code %>
 </p>
 
+<p>
+<strong>Players:</strong>
+<% @team.players.each do |pla| %>
+ <%= link_to pla.name, pla %>
+<% end %>
+</p>
+
+<%= link_to 'Add Player', new_player_path %> 
+
+<p>
+<strong>Image posts:</strong>
+<% @team.images.each do |pic| %>
+ <%= image_tag pic.image, pic %>
+<% end %>
+</p>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

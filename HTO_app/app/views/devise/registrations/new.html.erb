@@ -1,7 +1,30 @@
-<h2>Sign up</h2>
+<h2>Welcome to Half time Oranges</h2>
+
+<h3>Sign up your team</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :post_code %><br>
+    <%= f.text_field :post_code %>
+  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
