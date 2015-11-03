@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Team:</strong>
-  <%= @picture.team_id %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @picture.title %>
 </p>
@@ -17,8 +12,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @picture.image %>
+  <%= image_tag @picture.image, size: "160x100" %>
 </p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to 'Back', pictures_path %> |
+<%= link_to "Delete", picture_path(@picture), method: :delete, data: { confirm: "Are you Sure ?" } %>

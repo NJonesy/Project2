@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  before_action :authenticate_team!
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   # GET /players
@@ -43,7 +44,7 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+        format.html { redirect_to "/teams/#{current_team.id}", notice: 'Player was successfully updated.' }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class PlayersController < ApplicationController
   def destroy
     @player.destroy
     respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
+      format.html { redirect_to "/teams/#{current_team.id}", notice: 'Player was successfully removed.' }
       format.json { head :no_content }
     end
   end

@@ -32,10 +32,24 @@
 
 <p>
 <strong>Image posts:</strong>
-<% @team.images.each do |pic| %>
- <%= image_tag pic.image, pic %>
+<% @team.pictures.each do |pic| %>
+  <%= link_to( image_tag( pic.image, size: "160x100" ), pic) %>
 <% end %>
 </p>
+
+<%= link_to 'Add Image', new_picture_path %> 
+
+
+<p>
+<strong>Video posts:</strong>
+<% @team.videos.each do |vid| %>
+<iframe width="420" height="315"src="http://www.youtube.com/embed/vid.image?autoplay=1">
+</iframe>
+<% end %>
+</p>
+
+<%= link_to 'Add Video', new_video_path %> 
+
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
