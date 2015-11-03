@@ -15,6 +15,12 @@
   <%= image_tag @picture.image, size: "160x100" %>
 </p>
 
+<% if @team == current_team %>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
+<% end %>
+
 <%= link_to 'Back', pictures_path %> |
+
+<% if @team == current_team %>
 <%= link_to "Delete", picture_path(@picture), method: :delete, data: { confirm: "Are you Sure ?" } %>
+<% end %>

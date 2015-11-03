@@ -56,5 +56,8 @@
 <%= link_to 'Add Video', new_video_path %> 
 <% end %>
 
+<% if @team == current_team %>
 <%= link_to 'Edit', edit_team_path(@team) %> |
+<% end %>
+
 <%= link_to 'Back', teams_path %>
