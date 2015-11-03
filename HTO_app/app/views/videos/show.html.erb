@@ -20,9 +20,13 @@
   <%= @video.image %>
 </p>
 
-<% if @team == current_team %>
+
 <%= link_to 'Edit', edit_video_path(@video) %> |
-<% end %>
+
+
+
+<%= link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you Sure ?" } %>
+
 
 <%= link_to 'Back', videos_path %>
 

@@ -6,6 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to "Teams", teams_path %></li>
+      <li><%= link_to "Sign In", team_session_path %></li>
+      <li><%= link_to "Sign Up", new_team_registration_path %></li>
+    </ul>
+  </nav>
+</header>
+
 <body>
 
 <% flash.each do |name, message| %>

@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
 
+  mount_uploader :team_images, TeamImagesUploader
+
   has_many :players
   has_many :pictures
   has_many :videos

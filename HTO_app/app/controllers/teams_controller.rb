@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @videos = Video.where(team_id: params[:id])
+
   end
 
   # GET /teams/new
@@ -70,7 +70,7 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:username, :first_name, :last_name, :post_code, :team_id,
+      params.require(:team).permit(:username, :first_name, :last_name, :post_code, :team_id, :team_images,
         player_ids:[], picture_ids:[], video_ids:[] )
 
     end

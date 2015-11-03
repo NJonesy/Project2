@@ -20,6 +20,7 @@
         <td><%= team.first_name %></td>
         <td><%= team.last_name  %></td>
         <td><%= team.post_code %></td>
+        <td><%= image_tag team.team_images.url %></td>
         <td><%= link_to 'Show', team %></td>
       </tr>
     <% end %>
