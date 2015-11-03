@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @videos = Video.where(team_id: params[:id])
   end
 
   # GET /teams/new

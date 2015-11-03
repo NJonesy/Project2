@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-
+  include CanCan::ControllerAdditions
+  
   protected
   def after_sign_in_path_for(resource)
     teams_path

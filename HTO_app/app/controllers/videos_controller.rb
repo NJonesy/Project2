@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_team!
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +12,7 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @videos = Video.where(team_id: params[:id])
   end
 
   # GET /videos/new

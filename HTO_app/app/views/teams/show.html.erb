@@ -28,7 +28,9 @@
 <% end %>
 </p>
 
+<% if @team == current_team %>
 <%= link_to 'Add Player', new_player_path %> 
+<% end %>
 
 <p>
 <strong>Image posts:</strong>
@@ -37,19 +39,22 @@
 <% end %>
 </p>
 
+<% if @team == current_team %>
 <%= link_to 'Add Image', new_picture_path %> 
-
+<% end %>
 
 <p>
 <strong>Video posts:</strong>
 <% @team.videos.each do |vid| %>
-<iframe width="420" height="315"src="http://www.youtube.com/embed/vid.image?autoplay=1">
+<%= link_to vid.title, vid %>
+<iframe width="160" height="100"src="http://www.youtube.com/embed/vid.image?autoplay=1">
 </iframe>
 <% end %>
 </p>
 
+<% if @team == current_team %>
 <%= link_to 'Add Video', new_video_path %> 
-
+<% end %>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
