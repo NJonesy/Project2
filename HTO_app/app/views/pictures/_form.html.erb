@@ -15,21 +15,26 @@
   <%= f.label :title %><br>
   <%= f.text_field :title %>
 </div>
+
 <div class="field">
-  <%= f.label :team_images %><br />
-  <%= f.file_field :team_images %>
+  <%= f.label :post_images %><br />
+  <%= f.file_field :post_images %>
 </div>
+
 <div class="field">
   <%= f.label :caption %><br>
   <%= f.text_field :caption %>
 </div>
+
 <div class="field">
   <%= f.label :image %><br>
   <%= f.text_field :image %>
 </div>
+
 <div class="field">
  <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
 </div>
+
 <div class="actions">
   <%= f.submit %>
 </div>

@@ -4,7 +4,9 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.where("post_code ILIKE ?", "%#{params[:q]}%")
+
+    ## "SELECT * FROM teams WHERE post_code ILIKE '%params[:q]%' OR username ILIKE '%params[:q]%'"
   end
 
   # GET /teams/1

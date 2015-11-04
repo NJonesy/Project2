@@ -2,6 +2,12 @@
 
 <h1>Listing Teams</h1>
 
+<%= form_tag( teams_path, method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q, params[:q]) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -20,7 +26,7 @@
         <td><%= team.first_name %></td>
         <td><%= team.last_name  %></td>
         <td><%= team.post_code %></td>
-        <td><%= image_tag team.team_images.url %></td>
+        <td><%= image_tag team.team_images.url, size: "130x80" %></td>
         <td><%= link_to 'Show', team %></td>
       </tr>
     <% end %>

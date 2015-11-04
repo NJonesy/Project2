@@ -40,10 +40,9 @@
 <p>
  <strong>Image posts:</strong> 
  <% @team.pictures.each do |pic| %>
- <%= link_to( image_tag( pic.image, size: "160x100" ), pic) %> 
+ <%= link_to( image_tag( pic.post_images, size: "160x100" ), pic) %> 
  <% end %>
 </p> 
-
 
 <% if @team == current_team %>
 <%= link_to 'Add Image', new_picture_path %> 
