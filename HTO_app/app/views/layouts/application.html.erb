@@ -1,41 +1,61 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>HTOApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<header>
-  <nav>
-    <ul>
-      <li><%= link_to "Teams", teams_path %></li>
-      <li><%= link_to "Sign In", team_session_path %></li>
-      <li><%= link_to "Sign Up", new_team_registration_path %></li>
-    </ul>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "Half time Oranges", teams_path  %></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><%= link_to "My Team", current_team %></li>
+        </ul>
+
+        <ul class="log-out">
+          <% if current_team %>
+          <%= link_to "Log out", destroy_team_session_path, method: :delete %>
+        </ul>
+        <ul class="sign-in">   
+          <% else %>
+          <%= link_to "Sign In", new_team_session_path %>
+        </ul>   
+        <ul class="register">  
+         <%= link_to "Register", new_team_registration_path %>
+       </ul>   
+       <% end %> 
+
+       <!-- Left Nav Section -->
+       <ul class="left">
+        <li><%= link_to "View Teams", teams_path  %></li>
+      </ul>
+    </section>
   </nav>
-</header>
 
-<body>
-
-<% flash.each do |name, message| %>
+  <% flash.each do |name, message| %>
   <div class="flash-message flash-message-<%= name %>">
     <%= message %>
   </div>
-<% end %>
-
-<div class='login'>
-  <% if current_team %>
-     <%= current_team.email %>
-     <%= link_to "Log out", destroy_team_session_path, method: :delete %>
-  <% else %>
-     <%= link_to "Sign In", new_team_session_path %>
-     <%= link_to "Register", new_team_registration_path %>
   <% end %>
-</div>
 
-<%= yield %>
+
+
+  <%= yield %>
 
 </body>
 </html>
