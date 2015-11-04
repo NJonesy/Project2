@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Image:</b>
-  <%= image_tag @team.team_images.url %>
+  <strong>Photo:</strong>
+  <%= image_tag @team.team_images.url, size: "160x100" %>
 </p>
 
 <p>
@@ -26,33 +26,35 @@
 </p>
 
 <p>
-<strong>Players:</strong>
-<% @team.players.each do |pla| %>
- <%= link_to pla.name, pla %>
-<% end %>
+  <strong>Players:</strong>
+  <% @team.players.each do |pla| %>
+  <%= link_to pla.name, pla %>
+  <% end %>
 </p>
 
 <% if @team == current_team %>
-<%= link_to 'Add Player', new_player_path %> 
+<%= link_to 'Add Player', new_player_path %>
 <% end %>
 
+
 <p>
-<strong>Image posts:</strong>
-<% @team.pictures.each do |pic| %>
-  <%= link_to( image_tag( pic.image, size: "160x100" ), pic) %>
-<% end %>
-</p>
+ <strong>Image posts:</strong> 
+ <% @team.pictures.each do |pic| %>
+ <%= link_to( image_tag( pic.image, size: "160x100" ), pic) %> 
+ <% end %>
+</p> 
+
 
 <% if @team == current_team %>
 <%= link_to 'Add Image', new_picture_path %> 
 <% end %>
 
 <p>
-<strong>Video posts:</strong>
-<% @team.videos.each do |vid| %>
-<%= link_to vid.title, vid %>
-<iframe width="160" height="100" src="https://www.youtube.com/embed/<%= vid.image %>" frameborder="0" allowfullscreen></iframe>
-<% end %>
+  <strong>Video posts:</strong>
+  <% @team.videos.each do |vid| %>
+  <%= link_to vid.title, vid %>
+  <iframe width="160" height="100" src="https://www.youtube.com/embed/<%= vid.image %>" frameborder="0" allowfullscreen></iframe>
+  <% end %>
 </p>
 
 <% if @team == current_team %>
