@@ -1,61 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body class="<%= controller_name %>">
 
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><%= link_to "Half time Oranges", teams_path  %></h1>
-        </li>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Half time Oranges", teams_path  %></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="active"><%= link_to "My Team", current_team %></li>
+
+        <% if current_team %>
+        <li><%= link_to "Log out", destroy_team_session_path, method: :delete %></li>
+
+        <% else %>
+        <li class="active"><%= link_to "Sign In", new_team_session_path %></li>
+        <li class="active"><%= link_to "Register", new_team_registration_path %></li>
+        <% end %> 
       </ul>
 
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="active"><%= link_to "My Team", current_team %></li>
-        </ul>
+     <!-- Left Nav Section -->
+     <ul class="left">
+      <li><%= link_to "View Teams", teams_path  %></li>
+    </ul>
+  </section>
+</nav>
 
-        <ul class="log-out">
-          <% if current_team %>
-          <%= link_to "Log out", destroy_team_session_path, method: :delete %>
-        </ul>
-        <ul class="sign-in">   
-          <% else %>
-          <%= link_to "Sign In", new_team_session_path %>
-        </ul>   
-        <ul class="register">  
-         <%= link_to "Register", new_team_registration_path %>
-       </ul>   
-       <% end %> 
-
-       <!-- Left Nav Section -->
-       <ul class="left">
-        <li><%= link_to "View Teams", teams_path  %></li>
-      </ul>
-    </section>
-  </nav>
-
-  <% flash.each do |name, message| %>
-  <div class="flash-message flash-message-<%= name %>">
-    <%= message %>
-  </div>
-  <% end %>
+<% flash.each do |name, message| %>
+<div class="flash-message flash-message-<%= name %>">
+  <%= message %>
+</div>
+<% end %>
 
 
 
-  <%= yield %>
+<%= yield %>
 
 </body>
 </html>

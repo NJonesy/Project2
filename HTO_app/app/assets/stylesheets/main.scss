@@ -1,0 +1,19 @@
+body  {
+  &.registrations {
+    &:before {
+      content: ' ';
+      background-image: url('oranges.ashx');
+      background-position: { position: fixed; top: 0; left: 0; }
+      background-size: 100%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.5;
+    }
+  }
+}
+
+.field {
+  color: black;
+}

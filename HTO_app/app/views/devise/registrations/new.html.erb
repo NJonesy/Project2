@@ -1,10 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
 <h2>Welcome to Half time Oranges</h2>
 
 <h3>Sign up your team</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  
   <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
@@ -55,3 +60,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</body>
+</html>
