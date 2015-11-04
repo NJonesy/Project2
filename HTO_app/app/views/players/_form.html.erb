@@ -20,8 +20,8 @@
     <%= f.text_field :position %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.label :team_images %><br />
+    <%= f.file_field :team_images %>
   </div>
   <div class="field">
    <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
