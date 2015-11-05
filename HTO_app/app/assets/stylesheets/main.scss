@@ -1,17 +1,17 @@
 body  {
-  &.registrations, &.new, &.edit, &.teams.index {
-    &:before {
-      content: ' ';
-      background-image: url('oranges.ashx');
-      background-position: { position: fixed; top: 0; left: 0; }
-      background-size: cover;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.6;
-    }
-  }
+  // &.registrations, &.new, &.edit, &.teams.index {
+  //   &:before {
+  //     content: ' ';
+  //     background-image: url('oranges.ashx');
+  //     background-position: { position: fixed; top: 0; left: 0; }
+  //     background-size: cover;
+  //     position: fixed;
+  //     width: 100%;
+  //     height: 100%;
+  //     z-index: -1;
+  //     opacity: 0.6;
+  //   }
+  // }
 }  
 .field  {
   border-radius: 50px;
@@ -40,11 +40,21 @@ list-style-type: none;
 
 .deets {
   border: solid;
-  background-color: white;
   border-width: 0px;
+  .row {
+    height: 90px;
+    margin-bottom: 10px;
+  }
+
+  img {
+    border-radius: 10px;
+  }
 }
-.pic {
-  float: right;
+
+
+.scroller {
+  height: calc(100vh - 200px);
+  overflow: scroll;
 }
 
 

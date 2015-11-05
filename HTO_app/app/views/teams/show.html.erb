@@ -1,66 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p class="line-up">
-  <%= image_tag @team.team_images.url, size: "160x100" %>
-</p>
+<div class="row">
+  <div class="side-nav medium-3 columns">
+    <ul class="side-nav">
+      <% if @team == current_team %>
+        <li><%= link_to 'Add Player', new_player_path %></li>
+        <li><%= link_to 'Add Image', new_picture_path %></li>
+        <li><%= link_to 'Add Video', new_video_path %></li> 
+      <% end %>
+      <li class="divider"></li>
+      <% if @team == current_team %>
+        <li><%= link_to 'Edit Team', edit_team_path(@team) %></li>
+      <% end %>
+      <li><%= link_to 'Back', teams_path %></li>
+    </ul>
+  </div>
+  <div class="team-pic medium-6 columns">
+    <h1 class="team-name"><%= @team.username %></h1>
+    <%= image_tag @team.team_images.url %>
+  </div>
+  <div class="medium-3 columns">
+    <ul class="side-nav">
+      <% @team.players.each do |player| %>
+        <li><%= link_to player.name, player %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<p>
-  <strong>Username:</strong>
-  <%= @team.username %>
-</p>
-
-<p>
-  <strong>First Name:</strong>
-  <%= @team.first_name %>
-</p>
-
-<p>
-  <strong>Last Name:</strong>
-  <%= @team.last_name %>
-</p>
-
-<p>
-  <strong>Post code:</strong>
-  <%= @team.post_code %>
-</p>
-
-<p>
-  <strong>Players:</strong>
-  <% @team.players.each do |pla| %>
-  <%= link_to pla.name, pla %>
-  <% end %>
-</p>
-
-<% if @team == current_team %>
-<%= link_to 'Add Player', new_player_path %>
-<% end %>
-
-
-<p>
- <strong>Image posts:</strong> 
- <% @team.pictures.each do |pic| %>
- <%= link_to( image_tag( pic.post_images, size: "160x100" ), pic) %> 
- <% end %>
-</p> 
-
-<% if @team == current_team %>
-<%= link_to 'Add Image', new_picture_path %> 
-<% end %>
-
-<p>
-  <strong>Video posts:</strong>
-  <% @team.videos.each do |vid| %>
-  <%= link_to vid.title, vid %>
-  <iframe width="160" height="100" src="https://www.youtube.com/embed/<%= vid.image %>" frameborder="0" allowfullscreen></iframe>
-  <% end %>
-</p>
-
-<% if @team == current_team %>
-<%= link_to 'Add Video', new_video_path %> 
-<% end %>
-
-<% if @team == current_team %>
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<% end %>
-
-<%= link_to 'Back', teams_path %>
+<div class="row">
+  <div class="medium-6 columns pictures">
+    <% @team.pictures.each do |pic| %>
+      <%= link_to( image_tag( pic.post_images, size: "160x100" ), edit_picture_path(pic)) %>
+    <% end %>
+  </div>
+  <div class="medium-6 columns videos">
+    <% @team.videos.each do |vid| %>
+      <div>
+        <iframe src="https://www.youtube.com/embed/<%= vid.image %>" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <%= link_to "Edit video", vid %>
+    <% end %>
+  </div>
+</div>
