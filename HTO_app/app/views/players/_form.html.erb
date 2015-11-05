@@ -1,32 +1,43 @@
 <%= form_for(@player) do |f| %>
-  <% if @player.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+<% if @player.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
 
-      <ul>
-      <% @player.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br>
-    <%= f.text_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :team_images %><br />
-    <%= f.file_field :team_images %>
-  </div>
-  <div class="field">
-   <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @player.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<div class="new-player">
+<div class="medium-8 medium-offset-2 columns">
+  <div class="row">
+    <div class="field large-6 columns">
+      <%= f.text_field :name, :placeholder => "Player name"  %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field large-6 columns">
+      <%= f.text_field :position, :placeholder => "Position" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field large-6 columns">
+      <%= f.label "Upload a profile picture:" %><br />
+      <%= f.file_field :team_images %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field large-6 columns">
+    <%= f.label "Your team:" %><br>
+     <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
+   </div>
+ </div>
+ <div class="actions small-2 columns">
+  <%= submit_tag("Add player", class: "button postfix") %>
+</div>
+<% end %>
+</div>
+</div>
