@@ -12,8 +12,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="<%= controller_name %>">
-
+<body class="<%= [controller_name, action_name].join(" ") %>">
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">

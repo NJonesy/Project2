@@ -1,15 +1,51 @@
 body  {
-  &.registrations {
+  &.registrations, &.new, &.edit, &.teams.index {
     &:before {
       content: ' ';
       background-image: url('oranges.ashx');
       background-position: { position: fixed; top: 0; left: 0; }
-      background-size: 100%;
-      position: absolute;
+      background-size: cover;
+      position: fixed;
       width: 100%;
       height: 100%;
       z-index: -1;
       opacity: 0.6;
     }
   }
+}  
+.field  {
+  border-radius: 50px;
 }
+h2 {
+  color: white;
+}
+
+input {
+  // @include radius($input-border-radius);
+}
+
+.container {
+  margin: 40px auto;
+  width: 400px;
+}
+
+ul {
+list-style-type: none;
+}
+
+.container ul li {
+    display:inline-block;
+    vertical-align: top;
+}    
+
+.deets {
+  border: solid;
+  background-color: white;
+  border-width: 0px;
+}
+.pic {
+  float: right;
+}
+
+
+
