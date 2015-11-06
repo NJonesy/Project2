@@ -1,18 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Team:</strong>
-  <%= @video.team_id %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @video.title %>
-</p>
-
-<p>
-  <strong>Caption:</strong>
-  <%= @video.caption %>
 </p>
 
 <p>
@@ -25,7 +15,7 @@
 
 
 
-<%= link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you Sure ?" } %>
+<%= link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you Sure ?" } %> |
 
 
 <%= link_to 'Back', videos_path %>

@@ -22,16 +22,6 @@
 </div>
 
 <div class="field">
-  <%= f.label :caption %><br>
-  <%= f.text_field :caption %>
-</div>
-
-<div class="field">
-  <%= f.label :image %><br>
-  <%= f.text_field :image %>
-</div>
-
-<div class="field">
  <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
 </div>
 
