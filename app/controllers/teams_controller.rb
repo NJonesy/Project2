@@ -1,31 +1,22 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-  # GET /teams
-  # GET /teams.json
   def index
     @teams = Team.where("post_code ILIKE ?", "%#{params[:q]}%")
 
-    ## "SELECT * FROM teams WHERE post_code ILIKE '%params[:q]%' OR username ILIKE '%params[:q]%'"
   end
 
-  # GET /teams/1
-  # GET /teams/1.json
   def show
 
   end
 
-  # GET /teams/new
   def new
     @team = Team.new
   end
 
-  # GET /teams/1/edit
   def edit
   end
 
-  # POST /teams
-  # POST /teams.json
   def create
     @team = Team.new(team_params)
 
@@ -40,8 +31,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teams/1
-  # PATCH/PUT /teams/1.json
   def update
     respond_to do |format|
       if @team.update(team_params)
@@ -54,8 +43,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # DELETE /teams/1
-  # DELETE /teams/1.json
   def destroy
     @team.destroy
     respond_to do |format|
@@ -65,15 +52,14 @@ class TeamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_team
       @team = Team.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:username, :first_name, :last_name, :post_code, :team_id, :team_images,
         player_ids:[], picture_ids:[], video_ids:[] )
 
     end
-end
+  end

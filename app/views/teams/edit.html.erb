@@ -11,29 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name%>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name%>
-  </div>
-  <div class="field">
-    <%= f.label :post_code %><br>
-    <%= f.text_field :post_code %>
-  </div>
-  <div class="field">
-      <%= f.label :team_images %><br />
-      <%= f.file_field :team_images %>
+ <div class="new-player">
+ <div class="medium-8 medium-offset-2 columns">
+   <div class="row">
+     <div class="field large-6 columns">
+     <h3>Edit team</h3>
+    <%= f.text_field :username, :placeholder => "Team name"  %>
+      </div>
     </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="row">
+      <div class="field large-6 columns">
+    <%= f.text_field :first_name, :placeholder => "First name"%>
+   </div>
+ </div>
+ <div class="row">
+   <div class="field large-6 columns">
+    <%= f.text_field :last_name, :placeholder => "Last name"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field large-6 columns">
+    <%= f.text_field :post_code, :placeholder => "Post Code" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field large-6 columns">
+      <%= f.file_field :team_images, :placeholder => "Team image"  %>
+    </div>
+    </div>
+    <div class="actions small-2 columns">
+    <%= submit_tag("Update team", class: "button postfix") %>
+      </div>
+    </div>
+    </div>
 <% end %>
 
-<%= link_to 'Back', teams_path %>
+
+

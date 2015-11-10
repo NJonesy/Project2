@@ -11,14 +11,15 @@
 </p>
 
 <p>
-  <%= image_tag @player.image %>
+  <div class="player-pic">
+   <%= image_tag @player.player_image.url %>
+  </div>
 </p>
 
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 
 
-<%= link_to 'Back', players_path %> |
-
-
+<% if @team == current_team %>
 <%= link_to "Delete", player_path(@player), method: :delete, data: { confirm: "Are you Sure ?" } %>
+<% end %>

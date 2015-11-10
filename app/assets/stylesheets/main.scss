@@ -1,27 +1,22 @@
-body  {
-  // &.registrations, &.new, &.edit, &.teams.index {
-  //   &:before {
-  //     content: ' ';
-  //     background-image: url('oranges.ashx');
-  //     background-position: { position: fixed; top: 0; left: 0; }
-  //     background-size: cover;
-  //     position: fixed;
-  //     width: 100%;
-  //     height: 100%;
-  //     z-index: -1;
-  //     opacity: 0.6;
-  //   }
-  // }
-}  
+body {
+  background-color: #FFFDFA; 
+}
+
+.background {
+ background: url('SoccerPlayerKickingBall.jpg') 45em 50% no-repeat;
+ background-width: 200px;
+}
+
+
 .field  {
   border-radius: 50px;
 }
-h2 {
-  color: white;
-}
 
-input {
-  // @include radius($input-border-radius);
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: orange;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .container {
@@ -30,31 +25,35 @@ input {
 }
 
 ul {
-list-style-type: none;
+  list-style-type: none;
 }
 
 .container ul li {
-    display:inline-block;
-    vertical-align: top;
+  display:inline-block;
+  vertical-align: top;
 }    
 
 .deets {
   border: solid;
   border-width: 0px;
   .row {
-    height: 90px;
+    height: 100px;
     margin-bottom: 10px;
   }
 
   img {
     border-radius: 10px;
+    margin-bottom: 10px;
   }
 }
-
 
 .scroller {
   height: calc(100vh - 200px);
   overflow: scroll;
+}
+
+.top-bar {
+  font-family: 'Montserrat', sans-serif;
 }
 
 

@@ -12,18 +12,26 @@
 <% end %>
 
 
-<div class="field">
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-</div>
-<div class="field">
-<%= f.label "Video" %><br>
-  <%= f.text_field :image %>
-</div>
-<div class="field">
+<div class="new-picture">
+<div class="medium-8 medium-offset-2 columns">
+  <div class="row">
+    <div class="field large-6 columns">
+  <h3>Post a video</h3>
+  <%= f.text_field :title, :placeholder => "Title" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field large-6 columns">
+  <%= f.text_field :image, :placeholder => "Youtube url" %>
+  </div>
+  </div>
+  <div class="row">
+    <div class="field large-6 columns">
+    <%= f.label "Select your team:" %></br>
  <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
-</div>
-<div class="actions">
-  <%= f.submit %>
+ </div>
+ </div>
+ <div class="actions small-2 columns">
+ <%= submit_tag("Post video", class: "button postfix") %>
 </div>
 <% end %>

@@ -11,21 +11,25 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-</div>
-
-<div class="field">
-  <%= f.label :post_images %><br />
+<div class="new-picture">
+<div class="medium-8 medium-offset-2 columns">
+  <div class="row">
+    <div class="field large-6 columns">
+  <h3>Post an image</h3>
+  <%= f.text_field :title, :placeholder => "Title" %>
+  </div>
+   </div>
+<div class="row">
+     <div class="field large-6 columns">
   <%= f.file_field :post_images %>
 </div>
-
-<div class="field">
+</div>
+<div class="row">
+  <div class="field large-6 columns">
  <%=  f.collection_select(:team_id, Team.all, :id, :username ) %>
 </div>
-
-<div class="actions">
-  <%= f.submit %>
+</div>
+<div class="actions small-2 columns">
+<%= submit_tag("Post Image", class: "button postfix") %>
 </div>
 <% end %>

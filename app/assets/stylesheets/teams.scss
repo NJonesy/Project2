@@ -18,6 +18,12 @@ body.teams {
       }
     }
 
+    .team-pic {
+      img {
+        width: 100%;
+      }
+    }
+
     .videos {
       &>div {
         width: 100%;

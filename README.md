@@ -44,20 +44,11 @@ Where I got to:
     - Heroku deployment.
 
 
-Features still to add:
-
-    - Improved search. In particular 'closest to'.
-
-    - Player requirement.
-
-    - Messaging.
-
-
 Challenges/What I would have done differently/What I learned:
 
     - Planning. Working out exactly what I wanted to achieve. I think I became a bit torn between a number of things and it was difficult to settle on one end goal. In future I will talk an idea through more with 
-    others, to get an outside "user" perspective. Really pin pointing exactly what is and isn't necessary to include would have saved time. 
+    others, to get an outside "user" perspective. Really pin pointing exactly what is and isn't necessary to include would have saved time. In hindsight the site should have been fully focused around the 'social'. My user story should not have been concerned with player/team discovery. Rather, the design should have been concerned with all team interactions being diplayable on the individual team page. Additional features could then include up-to-date league tables, results and a chat feature, allowing the teams to communicate. 
 
-    - Setting up Devise. I'd had some previous issues so was glad that went relatively smoothly. One strong point of my planning was my models so I didn't need to rollback or spend time with lots of migrations. I could have been clearer and mor consistent with column names though.
+    - Setting up Devise. I'd had some previous issues so was glad that went relatively smoothly. One strong point of my planning was my models so I didn't need to rollback or spend time with lots of migrations. I could have been clearer and more consistent with column names though.
 
-    - Styling. I left all of my styling until last and feel now that at least getting Foundation set-up earlier and trying a few things out would have been benefitial. Having done little CSS coding up to this point and no experience of using frameworks this part of the project was always going to be a challenge. 
+    - Styling. I left all of my styling until last and feel now that at least getting Foundation set-up earlier and trying a few things out would have been benefitial. Having done little CSS coding up to this point and no experience of using frameworks this part of the project was always going to be a challenge. I would also have spent more time researching the desgn of successful sites. 
