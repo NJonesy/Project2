@@ -6,15 +6,10 @@ class TeamsController < ApplicationController
 
   end
 
-  def show
 
-  end
 
   def new
     @team = Team.new
-  end
-
-  def edit
   end
 
   def create
